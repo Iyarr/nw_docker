@@ -1,0 +1,34 @@
+@startuml nwdiag
+nwdiag {
+  router0 [shape = router];
+  router1 [shape = router];
+  router2 [shape = router];
+  prometheus [shape = prometheus];
+
+  network inet0_1 {
+    address = "192.168.0.0/30";
+    router0;
+    router1;
+  }
+
+  network inet0_2 {
+    address = "192.168.0.4/30";
+    router0;
+    router2;
+  }
+
+  network inet1_2 {
+    address = "192.168.0.8/30";
+    router1;
+    router2;
+  }
+
+  network prometheus {
+    address = "192.168.0.16/28";
+    router0;
+    router1;
+    router2;
+    prometheus;
+  }
+}
+@enduml
