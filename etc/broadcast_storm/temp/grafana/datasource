@@ -1,0 +1,9 @@
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    uid: prometheus
+    url: ${prometheus_url}
+    isDefault: true
+    version: 1
+    editable: false
