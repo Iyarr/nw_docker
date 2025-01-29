@@ -7,7 +7,7 @@ resource "local_file" "grafana_datasource" {
     prometheus_url = "http://${docker_container.prometheus.network_data[0].ip_address}:${var.prometheus.port}",
   })
 
-  filename = "local/datasource.yml"
+  filename = "local/grafana/datasource.yml"
 }
 
 resource "docker_container" "grafana" {
