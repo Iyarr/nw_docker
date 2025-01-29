@@ -1,137 +1,74 @@
-docker_network.inet0_1: Refreshing state... [id=aa2791389fd73c9cd3250340dc7ba2369ce76c13b91c031a51697a209828945e]
-docker_network.inet0_2: Refreshing state... [id=13dcf0dd04cf2c82118aab1c1a30c64b33e40524b233c4b67ee5b222812ca0d5]
-docker_image.prometheus: Refreshing state... [id=sha256:b03768b531a2b8c6b6813c7bf3ed6b5ad50c62eba9f67ab50b991267f010133dprom/prometheus:latest]
-docker_network.prometheus: Refreshing state... [id=89b42b157cf26f8c8dfa62fd23212b0e1af273b1779f90cf70df27ca4c8229f2]
-docker_network.inet1_2: Refreshing state... [id=7456075f457f3917a42654bd487ae59253e6c2c6cd29d69125c6f3fec2a7c8e4]
 local_file.dockerfile: Refreshing state... [id=5aead13d3216b0864b336253920d9e5714423dce]
+docker_network.inet1_2: Refreshing state... [id=881ab87c4538109a475d96a33155713f3996e5fc3fd3e1bbfb7a67df0b7d9a7f]
+docker_network.inet0_2: Refreshing state... [id=bd4df1c4090942ed2eb16b2efb359f41fbc4d611376351751a1578ef56c09cae]
+docker_network.prometheus: Refreshing state... [id=2b2541680a1644257518209c9591f91e8b97bd7bcc4497706f0a82e52c65f863]
+docker_network.inet0_1: Refreshing state... [id=7f76972398082195116f688efe469466abbefb294535315f51a9ccb3d65cf495]
+docker_image.prometheus: Refreshing state... [id=sha256:dd1ce2099cbd4180c20b87ae5ee0a513fb074290628617ccb5ea004654e826d8ubuntu/prometheus:2.53.3-24.04_stable]
 docker_image.router: Refreshing state... [id=sha256:c5e807fc8b7c9b9ad4bc3906f0daea686e13e803bbb75e901ca22853f27087a3router:latest]
-docker_container.router0: Refreshing state... [id=cb45fac1112d1d2476ca59002ad1d09f0d55adea32db6e305731107dd3fcb17f]
-docker_container.router2: Refreshing state... [id=4bd6148f1bf5dee94c47d12c9dbb0df1fb500b781dcbb45cdd601e10bcaf3987]
-docker_container.router1: Refreshing state... [id=f5a2d684376d765887a34071e106f50a5104cd552f892c15815800e441138d54]
-local_file.prometheus: Refreshing state... [id=a58f4605853a204fcc809d33f8d0b32e596dac8d]
-
-Note: Objects have changed outside of Terraform
-
-Terraform detected the following changes made outside of Terraform since the
-last "terraform apply" which may have affected this plan:
-
-  # docker_container.router2 has changed
-  ~ resource "docker_container" "router2" {
-        id                                          = "4bd6148f1bf5dee94c47d12c9dbb0df1fb500b781dcbb45cdd601e10bcaf3987"
-        name                                        = "router2"
-      ~ network_data                                = [
-          - {
-              - gateway                   = "192.168.10.33"
-              - global_ipv6_address       = ""
-              - global_ipv6_prefix_length = 0
-              - ip_address                = "192.168.10.35"
-              - ip_prefix_length          = 28
-              - ipv6_gateway              = ""
-              - mac_address               = "02:42:c0:a8:0a:23"
-              - network_name              = "inet0_2"
-            },
-            {
-                gateway                   = "192.168.10.49"
-                global_ipv6_address       = ""
-                global_ipv6_prefix_length = 0
-                ip_address                = "192.168.10.51"
-                ip_prefix_length          = 28
-                ipv6_gateway              = ""
-                mac_address               = "02:42:c0:a8:0a:33"
-                network_name              = "inet1_2"
-            },
-            {
-                gateway                   = "192.168.10.65"
-                global_ipv6_address       = ""
-                global_ipv6_prefix_length = 0
-                ip_address                = "192.168.10.68"
-                ip_prefix_length          = 28
-                ipv6_gateway              = ""
-                mac_address               = "02:42:c0:a8:0a:44"
-                network_name              = "prometheus"
-            },
-          + {
-              + gateway                   = "192.168.10.33"
-              + global_ipv6_address       = ""
-              + global_ipv6_prefix_length = 0
-              + ip_address                = "192.168.10.35"
-              + ip_prefix_length          = 28
-              + ipv6_gateway              = ""
-              + mac_address               = "02:42:c0:a8:0a:23"
-              + network_name              = "inet0_2"
-            },
-        ]
-        # (34 unchanged attributes hidden)
-
-        # (3 unchanged blocks hidden)
-    }
-
-
-Unless you have made equivalent changes to your configuration, or ignored the
-relevant attributes using ignore_changes, the following plan may include
-actions to undo or respond to these changes.
-
-─────────────────────────────────────────────────────────────────────────────
+docker_container.router2: Refreshing state... [id=d8b406ab1515b5a27a03ed081f35a8e10365fbf662f893483ec2feef4ab5bd03]
+docker_container.router0: Refreshing state... [id=f56e893dd0eef7303cef24fc377d88ff7ffc578c2dc70e97d0dfcdaf91d64d74]
+docker_container.router1: Refreshing state... [id=19f7094427c3ff8babafb19062ad38bb24b51d79d5d220f06bf022e97efaceef]
+local_file.prometheus: Refreshing state... [id=d03bdfa57aae39389e6b9dccfe87dd73558c053d]
+docker_container.prometheus: Refreshing state... [id=d6e67e70605d146d2e6b8face998208ee277e94507e9b824f564316e654e6339]
 
 Terraform used the selected providers to generate the following execution
 plan. Resource actions are indicated with the following symbols:
-  + create
 -/+ destroy and then create replacement
 
 Terraform will perform the following actions:
 
-  # docker_container.prometheus will be created
-  + resource "docker_container" "prometheus" {
-      + attach                                      = false
+  # docker_container.prometheus must be replaced
+-/+ resource "docker_container" "prometheus" {
       + bridge                                      = (known after apply)
-      + command                                     = (known after apply)
+      ~ command                                     = [] -> (known after apply)
       + container_logs                              = (known after apply)
-      + container_read_refresh_timeout_milliseconds = 15000
-      + entrypoint                                  = (known after apply)
-      + env                                         = (known after apply)
+      - cpu_shares                                  = 0 -> null
+      - dns                                         = [] -> null
+      - dns_opts                                    = [] -> null
+      - dns_search                                  = [] -> null
+      ~ entrypoint                                  = [
+          - "/usr/bin/pebble",
+          - "enter",
+        ] -> (known after apply)
+      ~ env                                         = [] -> (known after apply)
       + exit_code                                   = (known after apply)
-      + hostname                                    = (known after apply)
-      + id                                          = (known after apply)
-      + image                                       = "sha256:b03768b531a2b8c6b6813c7bf3ed6b5ad50c62eba9f67ab50b991267f010133d"
-      + init                                        = (known after apply)
-      + ipc_mode                                    = (known after apply)
-      + log_driver                                  = (known after apply)
-      + logs                                        = false
-      + must_run                                    = true
-      + name                                        = "prometheus"
-      + network_data                                = (known after apply)
-      + read_only                                   = false
-      + remove_volumes                              = true
-      + restart                                     = "no"
-      + rm                                          = false
-      + runtime                                     = (known after apply)
-      + security_opts                               = (known after apply)
-      + shm_size                                    = (known after apply)
-      + start                                       = true
-      + stdin_open                                  = false
+      - group_add                                   = [] -> null
+      ~ hostname                                    = "d6e67e70605d" -> (known after apply)
+      ~ id                                          = "d6e67e70605d146d2e6b8face998208ee277e94507e9b824f564316e654e6339" -> (known after apply)
+      ~ init                                        = false -> (known after apply)
+      ~ ipc_mode                                    = "private" -> (known after apply)
+      ~ log_driver                                  = "json-file" -> (known after apply)
+      - log_opts                                    = {} -> null
+      - max_retry_count                             = 0 -> null
+      - memory                                      = 0 -> null
+      - memory_swap                                 = 0 -> null
+        name                                        = "prometheus"
+      ~ network_data                                = [
+          - {
+              - gateway                   = "192.168.10.65"
+              - global_ipv6_address       = ""
+              - global_ipv6_prefix_length = 0
+              - ip_address                = "192.168.10.69"
+              - ip_prefix_length          = 28
+              - ipv6_gateway              = ""
+              - mac_address               = "02:42:c0:a8:0a:45"
+              - network_name              = "prometheus"
+            },
+        ] -> (known after apply)
+      - network_mode                                = "bridge" -> null # forces replacement
+      - privileged                                  = false -> null
+      - publish_all_ports                           = false -> null
+      ~ runtime                                     = "runc" -> (known after apply)
+      ~ security_opts                               = [] -> (known after apply)
+      ~ shm_size                                    = 64 -> (known after apply)
       + stop_signal                                 = (known after apply)
-      + stop_timeout                                = (known after apply)
-      + tty                                         = false
-      + wait                                        = false
-      + wait_timeout                                = 60
+      ~ stop_timeout                                = 0 -> (known after apply)
+      - storage_opts                                = {} -> null
+      - sysctls                                     = {} -> null
+      - tmpfs                                       = {} -> null
+        # (14 unchanged attributes hidden)
 
-      + networks_advanced {
-          + aliases = []
-          + name    = "prometheus"
-        }
-
-      + ports {
-          + external = 9090
-          + internal = 9090
-          + ip       = "0.0.0.0"
-          + protocol = "tcp"
-        }
-
-      + upload {
-          + executable = false
-          + file       = "/etc/prometheus/prometheus.yml"
-          + source     = "local/prometheus.yml"
-        }
+        # (3 unchanged blocks hidden)
     }
 
   # docker_container.router0 must be replaced
@@ -149,8 +86,8 @@ Terraform will perform the following actions:
       ~ env                                         = [] -> (known after apply)
       + exit_code                                   = (known after apply)
       - group_add                                   = [] -> null
-      ~ hostname                                    = "cb45fac1112d" -> (known after apply)
-      ~ id                                          = "cb45fac1112d1d2476ca59002ad1d09f0d55adea32db6e305731107dd3fcb17f" -> (known after apply)
+      ~ hostname                                    = "f56e893dd0ee" -> (known after apply)
+      ~ id                                          = "f56e893dd0eef7303cef24fc377d88ff7ffc578c2dc70e97d0dfcdaf91d64d74" -> (known after apply)
       ~ init                                        = false -> (known after apply)
       ~ ipc_mode                                    = "private" -> (known after apply)
       ~ log_driver                                  = "json-file" -> (known after apply)
@@ -164,20 +101,20 @@ Terraform will perform the following actions:
               - gateway                   = "192.168.10.17"
               - global_ipv6_address       = ""
               - global_ipv6_prefix_length = 0
-              - ip_address                = "192.168.10.19"
+              - ip_address                = "192.168.10.18"
               - ip_prefix_length          = 28
               - ipv6_gateway              = ""
-              - mac_address               = "02:42:c0:a8:0a:13"
+              - mac_address               = "02:42:c0:a8:0a:12"
               - network_name              = "inet0_1"
             },
           - {
               - gateway                   = "192.168.10.33"
               - global_ipv6_address       = ""
               - global_ipv6_prefix_length = 0
-              - ip_address                = "192.168.10.34"
+              - ip_address                = "192.168.10.35"
               - ip_prefix_length          = 28
               - ipv6_gateway              = ""
-              - mac_address               = "02:42:c0:a8:0a:22"
+              - mac_address               = "02:42:c0:a8:0a:23"
               - network_name              = "inet0_2"
             },
           - {
@@ -222,8 +159,8 @@ Terraform will perform the following actions:
       ~ env                                         = [] -> (known after apply)
       + exit_code                                   = (known after apply)
       - group_add                                   = [] -> null
-      ~ hostname                                    = "f5a2d684376d" -> (known after apply)
-      ~ id                                          = "f5a2d684376d765887a34071e106f50a5104cd552f892c15815800e441138d54" -> (known after apply)
+      ~ hostname                                    = "19f7094427c3" -> (known after apply)
+      ~ id                                          = "19f7094427c3ff8babafb19062ad38bb24b51d79d5d220f06bf022e97efaceef" -> (known after apply)
       ~ init                                        = false -> (known after apply)
       ~ ipc_mode                                    = "private" -> (known after apply)
       ~ log_driver                                  = "json-file" -> (known after apply)
@@ -237,10 +174,10 @@ Terraform will perform the following actions:
               - gateway                   = "192.168.10.17"
               - global_ipv6_address       = ""
               - global_ipv6_prefix_length = 0
-              - ip_address                = "192.168.10.18"
+              - ip_address                = "192.168.10.19"
               - ip_prefix_length          = 28
               - ipv6_gateway              = ""
-              - mac_address               = "02:42:c0:a8:0a:12"
+              - mac_address               = "02:42:c0:a8:0a:13"
               - network_name              = "inet0_1"
             },
           - {
@@ -257,10 +194,10 @@ Terraform will perform the following actions:
               - gateway                   = "192.168.10.65"
               - global_ipv6_address       = ""
               - global_ipv6_prefix_length = 0
-              - ip_address                = "192.168.10.66"
+              - ip_address                = "192.168.10.68"
               - ip_prefix_length          = 28
               - ipv6_gateway              = ""
-              - mac_address               = "02:42:c0:a8:0a:42"
+              - mac_address               = "02:42:c0:a8:0a:44"
               - network_name              = "prometheus"
             },
         ] -> (known after apply)
@@ -295,8 +232,8 @@ Terraform will perform the following actions:
       ~ env                                         = [] -> (known after apply)
       + exit_code                                   = (known after apply)
       - group_add                                   = [] -> null
-      ~ hostname                                    = "4bd6148f1bf5" -> (known after apply)
-      ~ id                                          = "4bd6148f1bf5dee94c47d12c9dbb0df1fb500b781dcbb45cdd601e10bcaf3987" -> (known after apply)
+      ~ hostname                                    = "d8b406ab1515" -> (known after apply)
+      ~ id                                          = "d8b406ab1515b5a27a03ed081f35a8e10365fbf662f893483ec2feef4ab5bd03" -> (known after apply)
       ~ init                                        = false -> (known after apply)
       ~ ipc_mode                                    = "private" -> (known after apply)
       ~ log_driver                                  = "json-file" -> (known after apply)
@@ -306,6 +243,16 @@ Terraform will perform the following actions:
       - memory_swap                                 = 0 -> null
         name                                        = "router2"
       ~ network_data                                = [
+          - {
+              - gateway                   = "192.168.10.33"
+              - global_ipv6_address       = ""
+              - global_ipv6_prefix_length = 0
+              - ip_address                = "192.168.10.34"
+              - ip_prefix_length          = 28
+              - ipv6_gateway              = ""
+              - mac_address               = "02:42:c0:a8:0a:22"
+              - network_name              = "inet0_2"
+            },
           - {
               - gateway                   = "192.168.10.49"
               - global_ipv6_address       = ""
@@ -320,21 +267,11 @@ Terraform will perform the following actions:
               - gateway                   = "192.168.10.65"
               - global_ipv6_address       = ""
               - global_ipv6_prefix_length = 0
-              - ip_address                = "192.168.10.68"
+              - ip_address                = "192.168.10.66"
               - ip_prefix_length          = 28
               - ipv6_gateway              = ""
-              - mac_address               = "02:42:c0:a8:0a:44"
+              - mac_address               = "02:42:c0:a8:0a:42"
               - network_name              = "prometheus"
-            },
-          - {
-              - gateway                   = "192.168.10.33"
-              - global_ipv6_address       = ""
-              - global_ipv6_prefix_length = 0
-              - ip_address                = "192.168.10.35"
-              - ip_prefix_length          = 28
-              - ipv6_gateway              = ""
-              - mac_address               = "02:42:c0:a8:0a:23"
-              - network_name              = "inet0_2"
             },
         ] -> (known after apply)
       - network_mode                                = "bridge" -> null # forces replacement
@@ -356,26 +293,47 @@ Terraform will perform the following actions:
   # local_file.prometheus must be replaced
 -/+ resource "local_file" "prometheus" {
       ~ content              = <<-EOT # forces replacement
+            # my global config
             global:
-              scrape_interval: 10
-              evaluation_interval: 10
+              scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+              evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+              # scrape_timeout is set to the global default (10s).
             
+            # Alertmanager configuration
+            alerting:
+              alertmanagers:
+                - static_configs:
+                    - targets:
+                      # - alertmanager:9093
+            
+            # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+            rule_files:
+              # - "first_rules.yml"
+              # - "second_rules.yml"
+            
+            # A scrape configuration containing exactly one endpoint to scrape:
+            # Here it's Prometheus itself.
             scrape_configs:
+              # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
               - job_name: "prometheus"
+            
+                # metrics_path defaults to '/metrics'
+                # scheme defaults to 'http'.
+            
                 static_configs:
-                  - targets: ["192.168.10.67:9090","192.168.10.66:9090","192.168.10.68:9090"]
+                  - targets: ["192.168.10.67:9090","192.168.10.68:9090","192.168.10.66:9090"]
         EOT -> (known after apply) # forces replacement
-      ~ content_base64sha256 = "4IS3Pq5j47diFlZ3xTqiMtvCK1J2zkZJ/bPvNpUFnlk=" -> (known after apply)
-      ~ content_base64sha512 = "xBpxm7waxDyghUSDRZ4CoUwZD51ULFdubeeBUBxAmdH7sN3oq6tdFzn0RZrLEY29PX2A5Y/e8fLZb+L0hIPQKQ==" -> (known after apply)
-      ~ content_md5          = "96da0a05f76a19e0d1f95c4f3e4c8a6f" -> (known after apply)
-      ~ content_sha1         = "a58f4605853a204fcc809d33f8d0b32e596dac8d" -> (known after apply)
-      ~ content_sha256       = "e084b73eae63e3b762165677c53aa232dbc22b5276ce4649fdb3ef3695059e59" -> (known after apply)
-      ~ content_sha512       = "c41a719bbc1ac43ca0854483459e02a14c190f9d542c576e6de781501c4099d1fbb0dde8abab5d1739f4459acb118dbd3d7d80e58fdef1f2d96fe2f48483d029" -> (known after apply)
-      ~ id                   = "a58f4605853a204fcc809d33f8d0b32e596dac8d" -> (known after apply)
+      ~ content_base64sha256 = "Nj6xICj3Ep/1jfTg/qPGKhkYT+Z+VlK6XcOtZEtlw9w=" -> (known after apply)
+      ~ content_base64sha512 = "WQuCO1GgGPQ55C4jkHFmgIHF5AeJbILqkdbznt61g75IXpvJUtvWqv5F3C5ny+8qgTDmcnB1LuAivNpvGsiXIQ==" -> (known after apply)
+      ~ content_md5          = "6fa8156816ff4b720fd2d55a7c32af75" -> (known after apply)
+      ~ content_sha1         = "d03bdfa57aae39389e6b9dccfe87dd73558c053d" -> (known after apply)
+      ~ content_sha256       = "363eb12028f7129ff58df4e0fea3c62a19184fe67e5652ba5dc3ad644b65c3dc" -> (known after apply)
+      ~ content_sha512       = "590b823b51a018f439e42e239071668081c5e407896c82ea91d6f39edeb583be485e9bc952dbd6aafe45dc2e67cbef2a8130e67270752ee022bcda6f1ac89721" -> (known after apply)
+      ~ id                   = "d03bdfa57aae39389e6b9dccfe87dd73558c053d" -> (known after apply)
         # (3 unchanged attributes hidden)
     }
 
-Plan: 5 to add, 0 to change, 4 to destroy.
+Plan: 5 to add, 0 to change, 5 to destroy.
 
 Changes to Outputs:
   ~ prometheus_network_addr_list = [
@@ -393,20 +351,20 @@ Changes to Outputs:
           - gateway                   = "192.168.10.65"
           - global_ipv6_address       = ""
           - global_ipv6_prefix_length = 0
-          - ip_address                = "192.168.10.66"
+          - ip_address                = "192.168.10.68"
           - ip_prefix_length          = 28
           - ipv6_gateway              = ""
-          - mac_address               = "02:42:c0:a8:0a:42"
+          - mac_address               = "02:42:c0:a8:0a:44"
           - network_name              = "prometheus"
         },
       - {
           - gateway                   = "192.168.10.65"
           - global_ipv6_address       = ""
           - global_ipv6_prefix_length = 0
-          - ip_address                = "192.168.10.68"
+          - ip_address                = "192.168.10.66"
           - ip_prefix_length          = 28
           - ipv6_gateway              = ""
-          - mac_address               = "02:42:c0:a8:0a:44"
+          - mac_address               = "02:42:c0:a8:0a:42"
           - network_name              = "prometheus"
         },
     ] -> (known after apply)
@@ -424,28 +382,28 @@ Changes to Outputs:
     ] -> (known after apply)
   ~ prometheus_targets_addr      = [
       - "\"192.168.10.67:9090\"",
-      - "\"192.168.10.66:9090\"",
       - "\"192.168.10.68:9090\"",
+      - "\"192.168.10.66:9090\"",
     ] -> (known after apply)
   ~ router0_nw                   = [
       - {
           - gateway                   = "192.168.10.17"
           - global_ipv6_address       = ""
           - global_ipv6_prefix_length = 0
-          - ip_address                = "192.168.10.19"
+          - ip_address                = "192.168.10.18"
           - ip_prefix_length          = 28
           - ipv6_gateway              = ""
-          - mac_address               = "02:42:c0:a8:0a:13"
+          - mac_address               = "02:42:c0:a8:0a:12"
           - network_name              = "inet0_1"
         },
       - {
           - gateway                   = "192.168.10.33"
           - global_ipv6_address       = ""
           - global_ipv6_prefix_length = 0
-          - ip_address                = "192.168.10.34"
+          - ip_address                = "192.168.10.35"
           - ip_prefix_length          = 28
           - ipv6_gateway              = ""
-          - mac_address               = "02:42:c0:a8:0a:22"
+          - mac_address               = "02:42:c0:a8:0a:23"
           - network_name              = "inet0_2"
         },
       - {
@@ -464,10 +422,10 @@ Changes to Outputs:
           - gateway                   = "192.168.10.17"
           - global_ipv6_address       = ""
           - global_ipv6_prefix_length = 0
-          - ip_address                = "192.168.10.18"
+          - ip_address                = "192.168.10.19"
           - ip_prefix_length          = 28
           - ipv6_gateway              = ""
-          - mac_address               = "02:42:c0:a8:0a:12"
+          - mac_address               = "02:42:c0:a8:0a:13"
           - network_name              = "inet0_1"
         },
       - {
@@ -484,10 +442,10 @@ Changes to Outputs:
           - gateway                   = "192.168.10.65"
           - global_ipv6_address       = ""
           - global_ipv6_prefix_length = 0
-          - ip_address                = "192.168.10.66"
+          - ip_address                = "192.168.10.68"
           - ip_prefix_length          = 28
           - ipv6_gateway              = ""
-          - mac_address               = "02:42:c0:a8:0a:42"
+          - mac_address               = "02:42:c0:a8:0a:44"
           - network_name              = "prometheus"
         },
     ] -> (known after apply)
@@ -496,10 +454,10 @@ Changes to Outputs:
           - gateway                   = "192.168.10.33"
           - global_ipv6_address       = ""
           - global_ipv6_prefix_length = 0
-          - ip_address                = "192.168.10.35"
+          - ip_address                = "192.168.10.34"
           - ip_prefix_length          = 28
           - ipv6_gateway              = ""
-          - mac_address               = "02:42:c0:a8:0a:23"
+          - mac_address               = "02:42:c0:a8:0a:22"
           - network_name              = "inet0_2"
         },
       - {
@@ -516,10 +474,10 @@ Changes to Outputs:
           - gateway                   = "192.168.10.65"
           - global_ipv6_address       = ""
           - global_ipv6_prefix_length = 0
-          - ip_address                = "192.168.10.68"
+          - ip_address                = "192.168.10.66"
           - ip_prefix_length          = 28
           - ipv6_gateway              = ""
-          - mac_address               = "02:42:c0:a8:0a:44"
+          - mac_address               = "02:42:c0:a8:0a:42"
           - network_name              = "prometheus"
         },
     ] -> (known after apply)

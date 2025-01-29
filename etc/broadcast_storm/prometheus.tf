@@ -8,7 +8,7 @@ locals {
     for network_data in local.network_datas : network_data if network_data.network_name == "prometheus"
   ]
   prometheus_targets_addr = [
-    for network_data in local.prometheus_network_addr_list : "\"${network_data.ip_address}:9090\""
+    for network_data in local.prometheus_network_addr_list : "\"${network_data.ip_address}:${var.prometheus.node_exporter.port}\""
   ]
 }
 
@@ -22,7 +22,7 @@ resource "local_file" "prometheus" {
 }
 
 resource "docker_image" "prometheus" {
-  name = "prom/prometheus:latest"
+  name = "ubuntu/prometheus:2.53.3-24.04_stable"
 }
 
 resource "docker_container" "prometheus" {

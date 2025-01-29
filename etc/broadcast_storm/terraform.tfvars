@@ -1,6 +1,9 @@
 prometheus = {
-  second_interval = 10
+  second_interval = "15s"
   port            = 9090
+  node_exporter   = {
+    port = 9100
+  }
 }
 
 docker = {

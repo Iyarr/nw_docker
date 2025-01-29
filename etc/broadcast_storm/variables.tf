@@ -1,7 +1,10 @@
 variable "prometheus" {
   type = object({
-    second_interval = number
+    second_interval = string
     port            = number
+    node_exporter   = object({
+      port = number
+    })
   })
 }
 
