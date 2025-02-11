@@ -1,0 +1,38 @@
+FROM debian:bookworm-slim
+
+RUN apt clean && apt update && apt update -y
+
+# 検証用ツール
+RUN apt install -y vim curl \
+        # ping command
+        iputils-ping \
+        # ip command
+        iproute2 \
+        # traceroute command
+        traceroute \
+        # ネットワークパケットをキャプチャして表示するためのユーティリティ
+        tcpdump \
+        # ps command
+        procps \
+        #tools to install FRR
+        lsb-release
+
+# install FRR
+# add GPG key
+RUN curl -s https://deb.frrouting.org/frr/keys.gpg | tee /usr/share/keyrings/frrouting.gpg > /dev/null
+
+# frr-stable will be the latest official stable release
+ENV FRRVER="frr-stable"
+RUN echo deb '[signed-by=/usr/share/keyrings/frrouting.gpg]' https://deb.frrouting.org/frr \
+     $(lsb_release -s -c) $FRRVER | tee -a /etc/apt/sources.list.d/frr.list
+
+# update and install FRR
+RUN apt update && apt install -y frr frr-pythontools
+
+WORKDIR /tmp
+RUN curl -OL https://github.com/prometheus/node_exporter/releases/download/v1.8.2//node_exporter-1.8.2.linux-amd64.tar.gz && \
+        tar xzvf node_exporter-1.8.2.linux-amd64.tar.gz && \
+        cd node_exporter-1.8.2.linux-amd64 && \
+        cp node_exporter /usr/local/bin
+WORKDIR /usr/local/bin
+CMD [ "./node_exporter" ]

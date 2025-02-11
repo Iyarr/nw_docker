@@ -1,9 +1,39 @@
 @startuml nwdiag
+!include <office/Devices/ip_gateway>
+!include <office/Devices/device_laptop>
+!include <office/Servers/server_generic>
+
 nwdiag {
-  network Internal {
-      address = "192.168.0.0/24";
-      web [address = "192.168.0.1"];
-      nas [address = "192.168.0.2"];
+  network inet0 {
+    address = "192.168.0.0/24"
+    pc0 [address = "192.168.0.1"]
+    router0 [address = "192.168.0.10"]
+    router1 [address = "192.168.0.11"]
+    observer [address = "192.168.0.100"]
   }
+
+  network inet1 {
+    address = "192.168.1.0/24"
+    router0 [address = "192.168.1.10"]
+    router2 [address = "192.168.1.12"]
+    observer [address = "192.168.1.100"]
+  }
+
+  network inet2 {
+    address = "192.168.2.0/24"
+    pc1 [address = "192.168.2.1"]
+    router1 [address = "192.168.2.11"]
+    router2 [address = "192.168.2.12"]
+    observer [address = "192.168.2.100"]
+  }
+
+  router0 [description = "<$ip_gateway>\n router0"]
+  router1 [description = "<$ip_gateway>\n router1"]
+  router2 [description = "<$ip_gateway>\n router2"]
+
+  observer [description = "<$server_generic>\n observer"]
+
+  pc0 [description = "<$device_laptop>\n  PC0"]
+  pc1 [description = "<$device_laptop>\n  PC1"]
 }
 @enduml

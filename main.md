@@ -6,6 +6,18 @@
 
 ![RIPv1](./svg/rip_v1_nw.svg)
 
+RIPv1を使用して動的なルーティングを実装する
+
+## BGP
+
+## Basic
+
+BGPを使った簡単なネットワークを構築する
+
+![BGP_Basic](./svg/bgp_basic_nw.svg)
+
+router1と2でピアを張って経路情報を交換する
+
 ## etc
 
 ### ブロードキャストストーム

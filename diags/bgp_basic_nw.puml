@@ -1,0 +1,45 @@
+@startuml nwdiag
+!include <office/Devices/ip_gateway>
+!include <office/Devices/device_laptop>
+!include <office/Servers/server_generic>
+
+nwdiag {
+
+  network inet0 {
+    address = "192.168.0.0/24"
+    router1 [address = "192.168.0.1"]
+    router2 [address = "192.168.0.2"]
+  }
+
+  network inet1 {
+    address = "192.168.1.0/24"
+    pc1 [address = "192.168.1.1"]
+    router1 [address = "192.168.1.11"]
+  }
+
+  network inet2 {
+    address = "192.168.2.0/24"
+    pc2 [address = "192.168.2.1"]
+    router2 [address = "192.168.2.12"]
+  }
+
+  group {
+    color = "#CCFFCC";
+    description = "AS 65001";
+
+    pc1;
+    router1;
+  }
+
+  group {
+    color = "#CCFFCC";
+    description = "AS 65002";
+
+    pc2;
+    router2;
+  }
+
+  router1 [description = "<$ip_gateway>\n router0"]
+  router2 [description = "<$ip_gateway>\n router1"]
+}
+@enduml
